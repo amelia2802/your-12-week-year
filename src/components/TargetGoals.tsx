@@ -1,7 +1,8 @@
-import { Target, Plus, X } from "lucide-react";
+import { Plus, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import type { CategoryData } from "@/components/LifeCategories";
+import illTarget from "@/assets/ill-target.png";
 
 interface TargetGoalsProps {
   goals: string[];
@@ -30,10 +31,10 @@ const TargetGoals = ({ goals, categories, onGoalsChange }: TargetGoalsProps) => 
   };
 
   return (
-    <section className="glass-card rounded-2xl p-5 space-y-4">
+    <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Target className="h-5 w-5 text-primary" />
+        <div className="flex items-center gap-3">
+          <img src={illTarget} alt="Target" className="w-10 h-10 object-contain" />
           <h2 className="text-lg font-semibold">Target Goals</h2>
         </div>
         {goals.length < 3 && (
@@ -48,7 +49,7 @@ const TargetGoals = ({ goals, categories, onGoalsChange }: TargetGoalsProps) => 
           <span className="text-xs text-muted-foreground">Focus areas:</span>
           {lowestCategories.map((c) => (
             <span key={c.id} className="text-xs bg-secondary text-secondary-foreground px-2 py-0.5 rounded-full">
-              {c.emoji} {c.name} ({c.rating}/10)
+              {c.name} ({c.rating}/10)
             </span>
           ))}
         </div>
@@ -76,7 +77,7 @@ const TargetGoals = ({ goals, categories, onGoalsChange }: TargetGoalsProps) => 
           ))}
         </div>
       )}
-    </section>
+    </div>
   );
 };
 

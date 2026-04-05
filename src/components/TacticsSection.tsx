@@ -1,8 +1,9 @@
-import { ListChecks, Plus, X, ChevronDown, ChevronUp } from "lucide-react";
+import { Plus, X, ChevronDown, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
+import illTactics from "@/assets/ill-tactics.png";
 
 export interface Tactic {
   id: string;
@@ -62,9 +63,9 @@ const TacticsSection = ({ tactics, onTacticsChange }: TacticsSectionProps) => {
   );
 
   return (
-    <section className="glass-card rounded-2xl p-5 space-y-4">
-      <div className="flex items-center gap-2">
-        <ListChecks className="h-5 w-5 text-primary" />
+    <div className="space-y-4">
+      <div className="flex items-center gap-3">
+        <img src={illTactics} alt="Tactics" className="w-10 h-10 object-contain" />
         <h2 className="text-lg font-semibold">Tactics</h2>
       </div>
 
@@ -129,7 +130,7 @@ const TacticsSection = ({ tactics, onTacticsChange }: TacticsSectionProps) => {
           ))}
         </div>
       )}
-    </section>
+    </div>
   );
 };
 

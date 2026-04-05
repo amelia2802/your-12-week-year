@@ -15,9 +15,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="mx-auto max-w-lg px-4 py-6 pb-20 space-y-5">
+      <div className="mx-auto max-w-5xl px-4 py-6 pb-20">
         {/* Header */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 mb-6">
           <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary text-primary-foreground">
             <Calendar className="h-5 w-5" />
           </div>
@@ -27,11 +27,42 @@ const Index = () => {
           </div>
         </div>
 
-        <MotivationalQuote />
-        <VisionSection bigGoal={bigGoal} threeYearVision={threeYearVision} onBigGoalChange={setBigGoal} onThreeYearVisionChange={setThreeYearVision} />
-        <LifeCategories categories={categories} onCategoriesChange={setCategories} />
-        <TargetGoals goals={goals} categories={categories} onGoalsChange={setGoals} />
-        <TacticsSection tactics={tactics} onTacticsChange={setTactics} />
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Quote - full width */}
+          <div className="md:col-span-2">
+            <MotivationalQuote />
+          </div>
+
+          {/* Vision - left column */}
+          <div className="glass-card rounded-2xl p-5">
+            <VisionSection
+              bigGoal={bigGoal}
+              threeYearVision={threeYearVision}
+              onBigGoalChange={setBigGoal}
+              onThreeYearVisionChange={setThreeYearVision}
+            />
+          </div>
+
+          {/* Target Goals - right column */}
+          <div className="glass-card rounded-2xl p-5">
+            <TargetGoals goals={goals} categories={categories} onGoalsChange={setGoals} />
+          </div>
+
+          {/* Life Categories - full width */}
+          <div className="md:col-span-2 glass-card rounded-2xl p-5">
+            <div className="flex items-center justify-between mb-3">
+              <h2 className="text-lg font-semibold">Life Categories</h2>
+              <span className="text-xs text-muted-foreground">Drag to reorder • Rate 1–10</span>
+            </div>
+            <LifeCategories categories={categories} onCategoriesChange={setCategories} />
+          </div>
+
+          {/* Tactics - full width */}
+          <div className="md:col-span-2 glass-card rounded-2xl p-5">
+            <TacticsSection tactics={tactics} onTacticsChange={setTactics} />
+          </div>
+        </div>
       </div>
     </div>
   );

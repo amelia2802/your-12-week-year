@@ -4,6 +4,7 @@ import VisionSection from "@/components/VisionSection";
 import LifeCategories, { DEFAULT_CATEGORIES, type CategoryData } from "@/components/LifeCategories";
 import TargetGoals from "@/components/TargetGoals";
 import TacticsSection, { type Tactic } from "@/components/TacticsSection";
+import SectionActions from "@/components/SectionActions";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 const Index = () => {
@@ -42,11 +43,13 @@ const Index = () => {
               onBigGoalChange={setBigGoal}
               onThreeYearVisionChange={setThreeYearVision}
             />
+            <SectionActions sectionName="Vision" onDelete={() => { setBigGoal(""); setThreeYearVision(""); }} />
           </div>
 
           {/* Target Goals - right column */}
           <div className="glass-card rounded-2xl p-5">
             <TargetGoals goals={goals} categories={categories} onGoalsChange={setGoals} />
+            <SectionActions sectionName="Target Goals" onDelete={() => setGoals([])} />
           </div>
 
           {/* Life Categories - full width */}
@@ -56,11 +59,13 @@ const Index = () => {
               <span className="text-xs text-muted-foreground">Drag to reorder • Rate 1–10</span>
             </div>
             <LifeCategories categories={categories} onCategoriesChange={setCategories} />
+            <SectionActions sectionName="Life Categories" onDelete={() => setCategories(DEFAULT_CATEGORIES)} />
           </div>
 
           {/* Tactics - full width */}
           <div className="md:col-span-2 glass-card rounded-2xl p-5">
             <TacticsSection tactics={tactics} onTacticsChange={setTactics} />
+            <SectionActions sectionName="Tactics" onDelete={() => setTactics([])} />
           </div>
         </div>
       </div>

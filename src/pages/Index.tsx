@@ -23,7 +23,7 @@ const Index = () => {
             <Calendar className="h-5 w-5" />
           </div>
           <div>
-            <h1 className="text-xl font-bold tracking-tight">12 Week Year</h1>
+            <h1 className="text-xl font-bold tracking-tight">Home</h1>
             <p className="text-xs text-muted-foreground">Your personal execution system</p>
           </div>
         </div>

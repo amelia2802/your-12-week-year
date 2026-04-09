@@ -71,7 +71,7 @@ const LifeCategories = ({ categories, onCategoriesChange }: LifeCategoriesProps)
           onDragStart={() => handleDragStart(idx)}
           onDragOver={(e) => handleDragOver(e, idx)}
           onDragEnd={handleDragEnd}
-          className={`flex items-center gap-3 rounded-xl px-3 py-2.5 transition-all ${
+          className={`flex flex-wrap items-center gap-2 sm:gap-3 rounded-xl px-3 py-2.5 transition-all ${
             draggedIdx === idx ? "bg-primary/10 scale-[1.02]" : "bg-background/60 hover:bg-muted/50"
           }`}
         >
@@ -82,8 +82,8 @@ const LifeCategories = ({ categories, onCategoriesChange }: LifeCategoriesProps)
             loading="lazy"
             className="w-8 h-8 object-contain shrink-0"
           />
-          <span className="text-sm font-medium flex-1 min-w-0">{cat.name}</span>
-          <div className="flex items-center gap-1">
+          <span className="text-sm font-medium min-w-[70px] flex-1">{cat.name}</span>
+          <div className="flex items-center gap-1 order-last sm:order-none w-full sm:w-auto pl-10 sm:pl-0">
             {Array.from({ length: 10 }, (_, i) => (
               <button
                 key={i}
@@ -92,10 +92,10 @@ const LifeCategories = ({ categories, onCategoriesChange }: LifeCategoriesProps)
                 aria-label={`Rate ${cat.name} ${i + 1}`}
               />
             ))}
+            <span className="text-xs font-semibold text-primary w-6 text-right ml-1">
+              {cat.rating || "–"}
+            </span>
           </div>
-          <span className="text-xs font-semibold text-primary w-6 text-right">
-            {cat.rating || "–"}
-          </span>
         </div>
       ))}
     </div>

@@ -10,7 +10,7 @@ const Navigation = () => {
   return (
     <nav className="sticky top-0 z-50 glass-card border-b border-border/50 mb-4">
       <div className="mx-auto max-w-5xl px-4">
-        <div className="flex items-center justify-between h-12">
+        <div className="flex items-center justify-between h-14">
           <div className="flex items-center gap-1">
             <NavLink
               to="/"
@@ -31,15 +31,19 @@ const Navigation = () => {
             </NavLink>
           </div>
 
+          <h1 className="text-lg font-bold tracking-tight text-foreground hidden sm:block">
+            12 Week Year Workbook
+          </h1>
+
           <button
             onClick={toggleTheme}
-            className="w-9 h-9 flex items-center justify-center rounded-xl hover:bg-muted transition-colors"
+            className="w-11 h-11 flex items-center justify-center rounded-xl hover:bg-muted transition-colors"
             aria-label="Toggle theme"
           >
             <img
               src={theme === "light" ? iconMoon : iconSun}
               alt={theme === "light" ? "Switch to dark mode" : "Switch to light mode"}
-              className="w-6 h-6"
+              className="w-9 h-9"
             />
           </button>
         </div>
